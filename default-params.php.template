@@ -13,7 +13,7 @@
   <database>
     <server>localhost</server>
     <user>admin</user>
-    <pwd>riuorLlHIIs2</pwd>
+    <pwd>%s</pwd>
     <name>itop</name>
     <db_tls_enabled></db_tls_enabled>
     <db_tls_ca></db_tls_ca>
@@ -70,7 +70,7 @@
 
 %s
   </selected_extensions>
-  <sample_data>0</sample_data>
+  <sample_data>1</sample_data>
   <old_addon></old_addon>
   <options type="array"/>
   <mysql_bindir></mysql_bindir>
