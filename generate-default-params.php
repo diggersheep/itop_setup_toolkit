@@ -1,13 +1,14 @@
 <?php
 
-if (sizeof($argv) < 4) {
-    echo "usage: php generate.php <setup_template_filename> <output_filename> <module_json_filename>\n";
+if (sizeof($argv) < 5) {
+    echo "usage: php generate.php <setup_template_filename> <output_filename> <module_json_filename> <db_password>\n";
     exit(1);
 }
 
 $sFilename = $argv[1];
 $sOutputFilename = $argv[2];
 $sModuleFilename = $argv[3];
+$sDBPassword = $argv[4];
 
 $aJsonContent = json_decode(
     file_get_contents($sModuleFilename),
@@ -20,6 +21,11 @@ foreach ($aJsonContent as $sModule) {
 }
 
 $sContent = file_get_contents($sFilename);
-$sFormattedContent = sprintf($sContent, $sFormattedModules, $sFormattedModules);
+$sFormattedContent = sprintf(
+    $sContent,
+    $sDBPassword,
+    $sFormattedModules,
+    $sFormattedModules
+);
 
 file_put_contents($sOutputFilename, $sFormattedContent);
